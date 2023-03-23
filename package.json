@@ -1,0 +1,23 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "game",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21",
+    "private-package-name": "git@private.git.server:user/repo.git#revision",
+    "public-package-name": "https://github.com/user/repo.git#revision"
+ 
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon app.js",
+    "install":"npm-git install"
+  },
+  "keywords": [
+    "mohammad"
+  ],
+  "author": "leonardo",
+  "license": "ISC"
+}
