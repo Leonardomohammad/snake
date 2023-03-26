@@ -84,6 +84,9 @@ class App extends React.Component {
   if(this.state.array!=nextState.array&&this.state.apple!=nextState.apple){
     return false;
   }
+  if(this.state.array!=nextState.array&&this.state.number!=nextState.number){
+    return false;
+  }
   // else if(this.state.stop!=nextState.stop){
   //   return false;
   // }
@@ -171,14 +174,22 @@ else if(x===27){
 adding=()=>{
  let m=[...this.state.array];
  if(this.state.fun=='moving'){
-for(let i=0;i<m.length;i++){
-  if(m[i].status==number-1){
-
-  }
+  let x=0;
+for(let i=0;i<m.length&&x==0;i++){
+  if(m[i].status==this.state.number-1){
+if(i==0){
+  m[29].color='red';
+  m[29].status=this.state.number;
+}
+else{
+  m[i-1].color='red';
+  m[i-1].status=this.state.number;
+}
+  x=1;}
 }
  }
   this.setState({
-    number:number+1,
+    number:this.state.number+1,
     array:m,
   })
 }
@@ -189,17 +200,22 @@ moving =()=>{
     let x=0;
           for(let i=0;i<m.length&&x==0;i++){
             if(i==29&&m[i].status==='leader'){
+              if(m[0].color=='pink'){
+                this.adding();
+                this.eating();
+              }
               m[i].color='black';
-              
               m[0].color='red';
               m[0].status='leader';
               m[i].status=false;
+
               innerId=i;
               x=1;
             }
             else if(m[i].status==='leader'){
-              if(m[i+1].color==pink){
-
+              if(m[i+1].color=='pink'){
+                this.adding();
+                this.eating();
               }
                m[i].color='black';
               m[i].status=false;
@@ -506,11 +522,12 @@ let m=[...this.state.array];
   eating=()=>{
     let m=[...this.state.array];
     let x=Math.round(Math.random()*30);
+    
+    console.log(m,x,'here is x and m')
     let newArray=[];
     while(m[x].color=='red'){
       x=Math.round(Math.random*30);
     }
-    console.log(m,x)
     m[x].color='pink';
     if(this.state.apple==true){
 this.setState({
