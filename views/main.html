@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="import" href="component.html"> -->
+    <!-- <link rel="alternate" href="rss.xml" type="application/rss+xml" title="RSS">
+     -->
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +25,7 @@
     <h1 style="text-align:center;">This is a Game</h1>
     <div id="exit"></div>
     <div id="root"></div>
+    <audio id="hello" src="/sounds/cinematic-intro-6097.mp3"></audio>;
   <script type='text/babel' >
     
 class App extends React.Component {
@@ -229,87 +234,108 @@ else if(x===27){
 // return newM;
 
 // }
-adding=(mm)=>{
- let m=[...mm];
- if(this.state.fun=='moving'){
-  let x=0;
-  let newStateNumber=this.state.number;
-for(let i=0;i<m.length&&x==0;i++){
-  if(m[i].status==newStateNumber-1){
-if(i==0){
-  m[99].color='red';
-  m[99].status=newStateNumber;
-}
-else{
-  m[i-1].color='red';
-  m[i-1].status=newStateNumber;
-}
-  x=1;}
-}
-return m;}
- else if(this.state.fun=='left'){
-  let x=0;
-for(let i=0;i<m.length&&x==0;i++){
-  if(m[i].status==this.state.number-1){
-if(i==99){
-  m[0].color='red';
-  m[0].status=this.state.number;
+// adding=(mm)=>{
+//  let m=[...mm];
+//  if(this.state.fun=='moving'){
+//   let x=0;
+//   let newStateNumber=this.state.number;
+// for(let i=0;i<m.length&&x==0;i++){
+//   if(m[i].status==newStateNumber-1){
+// if(i==0){
+//   m[99].color='red';
+//   m[99].status=newStateNumber;
+// }
+// else{
+//   m[i-1].color='red';
+//   m[i-1].status=newStateNumber;
+// }
+//   x=1;}
+// }
+// return m;}
+//  else if(this.state.fun=='left'){
+//   let x=0;
+// for(let i=0;i<m.length&&x==0;i++){
+//   if(m[i].status==this.state.number-1){
+// if(i==99){
+//   m[0].color='red';
+//   m[0].status=this.state.number;
   
-  x=1;
-}
-else{
-  m[i+1].color='red';
+//   x=1;
+// }
+// else{
+//   m[i+1].color='red';
 
-  m[i+1].status=this.state.number;
+//   m[i+1].status=this.state.number;
   
-  x=1;
-}}
-}
+//   x=1;
+// }}
+// }
  
-return m; } 
- else if(this.state.fun=='up'){
+// return m; } 
+//  else if(this.state.fun=='up'){
+//   let x=0;
+// for(let i=0;i<m.length&&x==0;i++){
+//   if(m[i].status==this.state.number-1){
+// if(i==99){
+//   m[0].color='red';
+//   m[0].status=this.state.number;
+// }
+// else if(i>89){
+  
+//   m[i-89].color='red';
+//   m[i-89].status=this.state.number;
+// }
+// else{
+//   m[i+10].color='red';
+//   m[i+10].status=this.state.number;
+//   }
+  
+//   x=1;
+// }}
+// return m;}
+//  else if(this.state.fun=='down'){
+//   let x=0;
+// for(let i=0;i<m.length&&x==0;i++){
+//   if(m[i].status==this.state.number-1){
+// if(i==9){
+//   m[90].color='red';
+//   m[90].status=this.state.number;
+// }
+// else if(i<10){
+//   m[i+91].color='red';
+//   m[i+91].status=this.state.number;
+// }
+// else{
+//   m[i-10].color='red';
+//   m[i-10].status=this.state.number;
+//   }
+  
+//   x=1;
+// }}
+// return m;
+//  }
+ 
+// }
+fuk =(mm)=>{
+  let m=[...mm];
   let x=0;
-for(let i=0;i<m.length&&x==0;i++){
-  if(m[i].status==this.state.number-1){
-if(i==99){
-  m[0].color='red';
-  m[0].status=this.state.number;
-}
-else if(i>89){
-  
-  m[i-89].color='red';
-  m[i-89].status=this.state.number;
-}
-else{
-  m[i+10].color='red';
-  m[i+10].status=this.state.number;
+  for(let i=this.state.number-1;i>0;i--){
+    x=0;
+    for(let y=0;y<m.length&&x==0;y++){
+    if(m[y].status==i){
+m[y].status=i+1;
+x=1;
+    }
+    }
   }
-  
-  x=1;
-}}
-return m;}
- else if(this.state.fun=='down'){
-  let x=0;
-for(let i=0;i<m.length&&x==0;i++){
-  if(m[i].status==this.state.number-1){
-if(i==9){
-  m[90].color='red';
-  m[90].status=this.state.number;
-}
-else if(i<10){
-  m[i+91].color='red';
-  m[i+91].status=this.state.number;
-}
-else{
-  m[i-10].color='red';
-  m[i-10].status=this.state.number;
+  for(let i=0;i<m.length;i++){
+    if(m[i].status=='leader'){
+      m[i].status=1;
+    }
   }
-  
-  x=1;
-}}
+  // console.log(m,'here is m in the fuk')
 return m;
- }
- 
+
 }
 moving =()=>{
     let m=[...this.state.array];
@@ -322,10 +348,17 @@ moving =()=>{
             if(i==m[m.length-1].id&&m[i].status==='leader'){
              if(m[0].color=='pink'){
 colorness='pink';
-
-m=this.adding(m);
+m=this.fuk(m);
+m[1].color='red';
+m[1].status='leader';
+m[0].color='black';
+m[0].status=false;
 I=1;
+
+innerId=0;
+              x=1;
              }
+             else{
                 m[i].color='black';
               m[0].color='red';
               m[0].status='leader';
@@ -333,17 +366,23 @@ I=1;
 
               innerId=i;
               x=1;
-             
+             }
             }
             else if(m[i].status==='leader'){
               if(m[i+1].color=='pink'){
                 colorness='pink';
-             
-m=this.adding(m);
+                m=this.fuk(m);
+m[i+2].color='red';
+m[i+2].status='leader';
+m[i+1].color='black';
+m[i+1].status=false;
 I=1;
+
+innerId=i+1;
+              x=1;
               }
   
-                
+               else{
                 m[i].color='black';
               m[i].status=false;
               m[i+1].color='red';
@@ -353,7 +392,7 @@ I=1;
               innerId=i;
               
               x=1;
-              
+               }
               
             }}
     let final=0;
@@ -485,10 +524,28 @@ final=1;
   }
 if(colorness=='pink'){
   newNumber=this.state.number+1;
+  m=this.fuk(m);
   
-  m=this.eating(m);
-  m=this.adding(m);
-}
+  for(let i=0;i<m.length;i++){
+    if(m[i].status==1){
+      if(i==9){
+        m[90].color='red';
+        m[90].status='leader';
+
+      }
+      else if(i<9){
+        
+        m[i+this.state.upN2].color='red';
+        m[i+this.state.upN2].status='leader';
+      }
+      else{
+        m[i-10].color='red';
+        m[i-10].status='leader';
+      }
+    }
+  }
+
+  m=this.eating(m);}
         
             setTimeout(()=>{
         let ne=0;
@@ -590,7 +647,27 @@ final=1;
   }
   if(colorness=='pink'){
   newNumber=this.state.number+1;
-  m=this.adding(m);
+   m=this.fuk(m);
+  
+  for(let i=0;i<m.length;i++){
+    if(m[i].status==1){
+      if(i==99){
+        m[0].color='red';
+        m[0].status='leader';
+
+      }
+      else if(i>89){
+        
+        m[i-89].color='red';
+        m[i-89].status='leader';
+      }
+      else{
+        m[i+10].color='red';
+        m[i+10].status='leader';
+      }
+    }
+  }
+
   m=this.eating(m);
 }
      
@@ -681,7 +758,23 @@ final=1;
 // console.log(m,'here is the end mmmmmm');
 if(colorness=='pink'){
   newNumber=this.state.number+1;
-  m=this.adding(m);
+  m=this.fuk(m);
+  // console.log(m,'here is m in the left method');
+  
+  for(let i=0;i<m.length;i++){
+    if(m[i].status==1){
+      if(i==0){
+        m[99].color='red';
+        m[99].status='leader';
+
+      }
+      else{
+        m[i-1].color='red';
+        m[i-1].status='leader';
+      }
+    }
+  }
+//  console.log(m,'here is m after for loop')
   m=this.eating(m);
 }
           
@@ -769,19 +862,9 @@ class Mm extends React.Component {
   }
 }
 ReactDOM.render(<App />, document.getElementById("root"));
-      
+      let a='/sounds/cinematic-intro-6097.mp3'
+      let b='https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'
 
-
-class X extends React.Component{
-render(){
-
-  return(
-    <button onClick='handleClick'>exit</button>
-  )
-}
-      }  
-        
-        ReactDOM.render(<X />,document.getElementById('exit'));
         </script>
 </body>
 </html>
