@@ -7,8 +7,10 @@
 
 .main {
   width: 90vw;
-  height: 70vh;
+  height: 90vh;
   background-color: white;
+  margin-left: 5vw;
+  margin-top:5vh;
   color: blue;
   display: grid;
   grid-template-rows: repeat(10,1fr);
